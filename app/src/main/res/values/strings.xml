@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CashbackExplorer</string>
+    <string name="prompt_name">name</string>
+    <string name="prompt_email">email</string>
+    <string name="action_log_in">Log in</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_login">Sorry an error occurred. Try again.</string>
 </resources>
