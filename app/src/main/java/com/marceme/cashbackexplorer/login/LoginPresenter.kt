@@ -1,6 +1,7 @@
 package com.marceme.cashbackexplorer.login
 
 import com.marceme.cashbackexplorer.isValidEmail
+import com.marceme.cashbackexplorer.model.User
 import com.marceme.cashbackexplorer.network.APIService
 import com.marceme.cashbackexplorer.model.UserResponse
 import retrofit2.Call
@@ -30,27 +31,8 @@ class LoginPresenter(private val loginView: LoginView, private val apiService: A
 
         loginView.showLoginProgress()
 
-//        val user = User(loginView.getName(), loginView.getEmail())
-//        apiService.createUser(user).enqueue(object : Callback<UserResponse> {
-//
-//            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
-//                loginView.hideLoginProgress()
-//                if(response.isSuccessful){
-//                    val token = response.headers()["token"]?:""
-//                    loginView.saveToken(token)
-//                    loginView.showVenues()
-//                }else{
-//                    loginView.showLogInError()
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-//                loginView.hideLoginProgress()
-//                loginView.showLogInError()
-//            }
-//        })
-
-        apiService.login("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmNlN2pAZ21haWwuY29tIiwiaWF0IjoxNTQ3NjY3NjIwLCJleHAiOjE1NTAyNTk2MjB9.k3PVc0mEYWNoG35IiLXZfuZpR3XCINoaQw22ytAyfUw").enqueue(object : Callback<UserResponse> {
+        val user = User(loginView.getName(), loginView.getEmail())
+        apiService.createUser(user).enqueue(object : Callback<UserResponse> {
 
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 loginView.hideLoginProgress()
@@ -68,6 +50,5 @@ class LoginPresenter(private val loginView: LoginView, private val apiService: A
                 loginView.showLogInError()
             }
         })
-
     }
 }

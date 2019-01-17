@@ -11,4 +11,5 @@
     <string name="cashback_format">%.1f%%</string>
     <string name="error_getting_venues">No venues found.</string>
     <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_login">Log in</string>
 </resources>
