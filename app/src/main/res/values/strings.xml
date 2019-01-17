@@ -6,4 +6,9 @@
     <string name="error_field_required">This field is required</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_login">Sorry an error occurred. Try again.</string>
+    <string name="title_activity_explorers">Explorer</string>
+    <string name="cashback_percentage">cashback: %.1f%%</string>
+    <string name="cashback_format">%.1f%%</string>
+    <string name="error_getting_venues">No venues found.</string>
+    <string name="title_activity_splash">SplashActivity</string>
 </resources>

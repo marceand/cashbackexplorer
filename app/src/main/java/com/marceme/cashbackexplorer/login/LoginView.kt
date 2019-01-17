@@ -17,7 +17,9 @@ interface LoginView {
 
     fun hideLoginProgress()
 
-    fun logInError()
+    fun showLogInError()
 
-    fun showVenues(token: String)
+    fun saveToken(token: String)
+
+    fun showVenues()
 }

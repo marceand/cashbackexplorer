@@ -1,12 +1,14 @@
 package com.marceme.cashbackexplorer.login
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
 import com.marceme.cashbackexplorer.R
+import com.marceme.cashbackexplorer.explore.ExplorerActivity
 import com.marceme.cashbackexplorer.hideKeyboard
 import com.marceme.cashbackexplorer.network.APIServiceFactory
 import kotlinx.android.synthetic.main.activity_login.*
@@ -66,14 +68,20 @@ class LoginActivity : AppCompatActivity(), LoginView {
         log_in_button.isEnabled = true
     }
 
-    override fun logInError() {
+    override fun showLogInError() {
         Toast.makeText(this, getString(R.string.error_login), Toast.LENGTH_LONG).show()
     }
 
-    override fun showVenues(token: String) {
+
+    override fun saveToken(token: String) {
         val pref = this.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE)
         pref.edit().putString(PREF_KEY_TOKEN, token).apply()
-        Toast.makeText(this, "Show venues", Toast.LENGTH_LONG).show()
+    }
+
+    override fun showVenues() {
+        val intent = Intent(this, ExplorerActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
 }

@@ -16,5 +16,5 @@ interface APIService {
     fun login(@Header("token") token:String): Call<UserResponse>
 
     @GET("venues")
-    fun venues(@Header("token") token:String, @Query("city") city: String = "New York"): Call<VenuesResponse>
+    fun getVenues(@Header("token") token:String, @Query("city") city: String): Call<VenuesResponse>
 }
